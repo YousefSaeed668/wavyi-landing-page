@@ -39,26 +39,27 @@ async function getBlogData(blogId: string) {
 export default async function page({ params }: { params: { blogId: string } }) {
   const blogData = await getBlogData(params.blogId);
   return (
-    <div className="pb-20">
-      <div className="w-full h-[380px] sm:h-[450px] relative">
-        <Image
-          fill
-          src={`${process.env.NEXT_PUBLIC_API_IMAGE}/${blogData.imageUrl}`}
-          className="object-cover"
-          alt="blog image"
-        />
-        <h1 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-2 text-[26px] font-bold w-[40%] text-center md:w-[70%] sm:w-[80%] sm:text-[22px]">
-          {blogData.name}
-        </h1>
-      </div>
-      <MaxWidth className="mt-20">
-        <div>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: blogData.content,
-            }}
-          />
+    <div className="py-20">
+      <MaxWidth>
+        <div className="flex justify-between items-center flex-col md:flex-row">
+          <h1 className=" text-3xl md:text-5xl font-bold mb-20 max-md:text-center md:max-w-[60%] ">
+            {/* {blogData.name} */}
+            today we have to be happy and enjoy the day with our family and
+            friends
+          </h1>
+          <div className="w-full md:w-[450px] h-[300px] relative">
+            <Image
+              // src={`${process.env.NEXT_PUBLIC_API_IMAGE}${blogData.imageUrl}`}
+              src="/blog.jpeg"
+              alt="image"
+              fill
+            />
+          </div>
         </div>
+        <div
+          className="md:w-[60%] mx-auto shadow-xl rounded-sm mt-20 p-8"
+          dangerouslySetInnerHTML={{ __html: blogData.content }}
+        ></div>
       </MaxWidth>
     </div>
   );

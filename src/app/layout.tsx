@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Cairo } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/header";
 import Footer from "@/components/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
-
+const cairo = Cairo({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800", "900", "1000"],
+});
 export const metadata: Metadata = {
   title: {
     template: "%s | Wavyi",
@@ -22,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${cairo.className} overflow-x-hidden`}>
         <div className="flex flex-col min-h-screen">
           <main className="flex-1">{children}</main>
           <Footer />

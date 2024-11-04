@@ -12,8 +12,9 @@ async function getWavyiStores(): Promise<{ data: Store[] }> {
 export const revalidate = 43200;
 export default async function ThemeExamples() {
   const storesExamples = await getWavyiStores();
+
   return (
-    <section className=" py-56" id="examples">
+    <section className=" py-28 md:py-56 2xl:pt-72" id="examples">
       <MaxWidth>
         <h1 className="text-center text-3xl md:text-5xl font-bold mb-20 text-primaryOne">
           Examples Of Our Stores Themes

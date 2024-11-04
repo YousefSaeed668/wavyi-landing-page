@@ -86,7 +86,7 @@ const pricingList = {
 
 export default function Pricing() {
   return (
-    <section className="py-36">
+    <section className="py-16">
       <MaxWidth>
         <h1 className="text-center text-3xl md:text-5xl font-bold mb-20 text-primaryOne">
           Pricing

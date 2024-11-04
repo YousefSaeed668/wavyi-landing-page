@@ -9,7 +9,7 @@ export default function MaxWidth({ children, ...props }: MaxWidthProps) {
   return (
     <div
       {...props}
-      className={cn("max-w-7xl w-full mx-auto px-4 md:px-0", className)}
+      className={cn("max-w-[1390px] w-full mx-auto px-4 md:px-0", className)}
     >
       {children}
     </div>
