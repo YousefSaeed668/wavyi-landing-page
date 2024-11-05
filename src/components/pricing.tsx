@@ -3,97 +3,28 @@ import MaxWidth from "./maxWidth";
 import Link from "next/link";
 import Button from "./button";
 import Image from "next/image";
+import { getLocale, getTranslations } from "next-intl/server";
+const pricingImages = {
+  free: "/free.png",
+  small: "/small.png",
+  enterprise: "/enterprise.png",
+  super: "/super.png",
+} as const;
 
-const pricingList = {
-  monthlyPricings: [
-    {
-      imgUrl: "/free.png",
-      planTitle: "Free",
-      price: "FREE",
-      timeline: "/Month",
+export type PlanKey = keyof typeof pricingImages;
 
-      features: [
-        { isActive: true, label: "15 Monthly Requests" },
-        { isActive: true, label: "Other Employees" },
-        { isActive: true, label: "Print a Distinctive Invoice with a QR Code" },
-        { isActive: true, label: "Print a Custom Message for Your Invoices" },
-        { isActive: true, label: "Store Activity and Accounts Reports" },
-        { isActive: true, label: "Access to Your Customer Database" },
-        { isActive: true, label: "Add an Expense System" },
-        { isActive: true, label: "Special Link for Your Online Store" },
-      ],
-    },
-    {
-      imgUrl: "/small.png",
-      planTitle: "Small Projects",
-      price: "600 EGP",
-      timeline: "/Month",
-
-      features: [
-        { isActive: true, label: "150 Monthly Requests" },
-        { isActive: true, label: "Add an Unlimited Number of Products" },
-        { isActive: true, label: "5 Other Employees" },
-        {
-          isActive: false,
-          label: "Print a Distinctive Invoice with a QR Code",
-        },
-        { isActive: true, label: "Print a Custom Message for Your Invoices" },
-        { isActive: true, label: "Store Activity and Accounts Reports" },
-        { isActive: true, label: "Access to Your Customer Database" },
-        { isActive: false, label: "Add an Expense System" },
-        { isActive: true, label: "Special Link for Your Online Store" },
-      ],
-    },
-    {
-      imgUrl: "/enterprise.png",
-      planTitle: "Enterprise Package",
-      price: "1000 EGP",
-      timeline: "/Month",
-
-      features: [
-        { isActive: true, label: "650 Monthly Requests" },
-        { isActive: true, label: "Add an Unlimited Number of Products" },
-        { isActive: true, label: "10 Other Employees" },
-        { isActive: true, label: "Print a Distinctive Invoice with a QR Code" },
-        { isActive: true, label: "Print a Custom Message for Your Invoices" },
-        { isActive: true, label: "Store Activity and Accounts Reports" },
-        { isActive: true, label: "Access to Your Customer Database" },
-        { isActive: true, label: "Add an Expense System" },
-        { isActive: true, label: "Special Link for Your Online Store" },
-      ],
-      isActive: true,
-    },
-    {
-      imgUrl: "/super.png",
-      planTitle: "Super Package",
-      price: "1400 EGP",
-      timeline: "/Month",
-
-      features: [
-        { isActive: true, label: "Unlimited Monthly Requests" },
-        { isActive: true, label: "Add an Unlimited Number of Products" },
-        { isActive: true, label: "20 Other Employees" },
-        { isActive: true, label: "Print a Distinctive Invoice with a QR Code" },
-        { isActive: true, label: "Print a Custom Message for Your Invoices" },
-        { isActive: true, label: "Store Activity and Accounts Reports" },
-        { isActive: true, label: "Access to Your Customer Database" },
-        { isActive: true, label: "Add an Expense System" },
-        { isActive: true, label: "Special Link for Your Online Store" },
-      ],
-    },
-  ],
-};
-
-export default function Pricing() {
+export default async function Pricing() {
+  const t = await getTranslations("pricing");
+  const planKeys: PlanKey[] = ["free", "small", "enterprise", "super"];
   return (
-    <section className="py-16">
+    <section className="py-16 ">
       <MaxWidth>
-        <h1 className="text-center text-3xl md:text-5xl font-bold mb-20 text-primaryOne">
-          Pricing
+        <h1 className="text-center text-3xl md:text-5xl font-bold mb-20 ">
+          {t("title")}
         </h1>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {pricingList.monthlyPricings.map((pricing, i) => (
-            <PricingItem key={i} pricing={pricing} />
+          {planKeys.map((planKey, index) => (
+            <PricingItem planKey={planKey} key={planKey} index={index} />
           ))}
         </div>
       </MaxWidth>
@@ -101,41 +32,61 @@ export default function Pricing() {
   );
 }
 
-const PricingItem = ({ pricing }: { pricing: Plan }) => {
-  const { planTitle, price, timeline, features, imgUrl } = pricing;
+async function PricingItem({
+  planKey,
+  index,
+}: {
+  planKey: PlanKey;
+  index: number;
+}) {
+  const t = await getTranslations("pricing");
+  const locale = await getLocale();
+
+  const features = t.raw(`plans.${planKey}.features`) as Array<{
+    label: string;
+    isActive: boolean;
+  }>;
   return (
-    <div className=" rounded-2xl p-4 lg:p-12  shadow-lg flex flex-col">
+    <div
+      className=" rounded-2xl p-4 lg:p-12  shadow-lg flex flex-col"
+      data-aos="zoom-in-up"
+      data-aos-delay={index * 400}
+      data-aos-offset="0"
+    >
       <Image
-        src={imgUrl}
+        src={pricingImages[planKey]}
         width={150}
         height={150}
-        alt={planTitle}
+        alt={t(`plans.${planKey}.title`)}
         className="block mx-auto mb-6"
       />
-      <h3 className="text-2xl font-bold mb-2">{planTitle}</h3>
+      <h3 className="text-2xl font-bold mb-2">
+        {" "}
+        {t(`plans.${planKey}.title`)}
+      </h3>
       <div className="mb-4">
-        <span className={`text-xl font-bold `}>{price}</span>
-        <span className={`ml-2 opacity-50 `}>{timeline}</span>
+        <span className={`text-xl font-bold `}>
+          {t(`plans.${planKey}.price`)}
+        </span>
+        <span className={`ml-2 opacity-50 `}>{t("perMonth")}</span>
       </div>
       <div className="flex flex-col justify-between flex-1">
         <ul className="flex flex-col">
-          {features.map((item, i) => (
+          {features.map((feature, i) => (
             <li className="mb-8 flex items-center" key={i}>
               <span
-                className={`rounded-full mr-2 p-1 ${
-                  item.isActive ? "bg-primaryOne " : "bg-gray-400"
-                }`}
+                className={`rounded-full ${
+                  locale === "ar" ? "ml-2" : "mr-2"
+                } p-1 ${feature.isActive ? "bg-primaryOne" : "bg-gray-400"}`}
               >
                 <CheckIcon
                   size={14}
-                  className={` text-white ${
-                    item.isActive ? " text-white" : "opacity-50"
-                  } `}
+                  className={`text-white ${
+                    feature.isActive ? "opacity-100" : "opacity-50"
+                  }`}
                 />
               </span>
-              <span className={item.isActive ? "opacity-100" : "opacity-50"}>
-                {item.label}
-              </span>
+              <span>{feature.label}</span>
             </li>
           ))}
         </ul>
@@ -144,9 +95,9 @@ const PricingItem = ({ pricing }: { pricing: Plan }) => {
           href="https://app.wavyi.com/#/login/signUp"
           className="block mt-auto"
         >
-          <Button className="uppercase">free trial</Button>
+          <Button className="uppercase">{t("freeTrialBtn")}</Button>
         </Link>
       </div>
     </div>
   );
-};
+}

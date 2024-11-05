@@ -4,8 +4,11 @@ import Image from "next/image";
 import Button from "./button";
 import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "./ui/sheet";
 import { Menu } from "lucide-react";
+import LocaleSwitch from "./localeSwitcher";
+import { getTranslations } from "next-intl/server";
 
-export function Header({ isPage = false }: { isPage?: boolean }) {
+export async function Header({ isPage = false }: { isPage?: boolean }) {
+  const t = await getTranslations("header");
   return (
     <header
       className={`py-8  bg-black  bg-gradient-to-l from-[#166BB9] to-black text-white ${
@@ -25,27 +28,34 @@ export function Header({ isPage = false }: { isPage?: boolean }) {
         <nav className=" gap-8 hidden md:flex">
           <ul className="flex gap-8 items-center">
             <li>
-              <a href="https://app.wavyi.com/#/login/signUp">
-                Join Now For Free
-              </a>
+              <a href="https://app.wavyi.com/#/login/signUp">{t("joinFree")}</a>
             </li>
             <li>
               <a href="https://app.wavyi.com/#/login/">
                 <Button className="bg-white hover:bg-transparent text-primaryOne hover:text-white rounded-full px-4">
-                  Login
+                  {t("login")}
                 </Button>
               </a>
             </li>
+            <li>
+              <Link href="/blogs">{t("blogs")}</Link>
+            </li>
             <li className="flex items-center gap-2">
-              <span className="text-sm">
-                Now You Can Download the Application From
-              </span>
-              <Image
-                src="/google-play.svg"
-                alt="Google Play"
-                width={32}
-                height={32}
-              />
+              <span className="text-sm">{t("downloadApp")}</span>
+              <a
+                href="https://play.google.com/store/apps/details?id=com.wavyi.seller_dashboard_application&hl=en&gl=US"
+                target="_blank"
+              >
+                <Image
+                  src="/google-play.svg"
+                  alt="Google Play"
+                  width={32}
+                  height={32}
+                />
+              </a>
+            </li>
+            <li>
+              <LocaleSwitch />
             </li>
           </ul>
         </nav>
@@ -72,7 +82,10 @@ export function Header({ isPage = false }: { isPage?: boolean }) {
               <nav className="mt-12">
                 <ul className="flex flex-col gap-8 items-center">
                   <li className="py-8 border-b w-full text-center">
-                    <a href="https://app.wavyi.com/#/login/">Login</a>
+                    <a href="https://app.wavyi.com/#/login/">{t("login")}</a>
+                  </li>
+                  <li className="py-8 border-b w-full text-center">
+                    <LocaleSwitch />
                   </li>
                 </ul>
               </nav>

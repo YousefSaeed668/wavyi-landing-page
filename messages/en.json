@@ -1,0 +1,227 @@
+{
+  "header": {
+    "login": "Login",
+    "downloadApp": "Now You Can Download the Application From",
+    "joinFree": "Join Now For Free",
+    "blogs": "Blogs"
+  },
+  "homePage": {
+    "heroTitle": "Create Your Own App Store and Sell Online with Ease .",
+    "heroParagraph": "With wavyi you can easily create and manage your own app store, and we'll handle the hosting and maintenance. This means you can focus on what you do best to run your business.",
+    "joinFree": "Join Now For Free",
+    "onlineStore": "Your online store",
+    "onlineStoreParagraph": "Your ideal destination to create a website that reflects your vision and style. We provide an easy-to-use platform that allows you to choose and design the website you dream of with ease and professionalism.",
+    "easyCashier": "Easy-to-use cashier",
+    "easyCashierParagraph": "We collaborate with many payment gateway partners, providing you with the best ways to collect payments easily and quickly on your website and online.",
+    "invoices": "Invoices for all your orders",
+    "invoicesParagraph": "You can print invoices for all your orders and place your brand on them",
+    "waveText": "With simple steps, you can create your online store on the Wi-Fi platform. Learn now.",
+    "themeExamples": "Examples Of Our Stores Themes",
+    "pricing": "Pricing"
+  },
+  "pricing": {
+    "title": "Pricing",
+    "freeTrialBtn": "Free Trial",
+    "perMonth": "/Month",
+    "plans": {
+      "free": {
+        "title": "Free",
+        "price": "FREE",
+        "features": [
+          { "label": "15 Monthly Requests", "isActive": true },
+          { "label": "Other Employees", "isActive": true },
+          {
+            "label": "Print a Distinctive Invoice with a QR Code",
+            "isActive": true
+          },
+          {
+            "label": "Print a Custom Message for Your Invoices",
+            "isActive": true
+          },
+          { "label": "Store Activity and Accounts Reports", "isActive": true },
+          { "label": "Access to Your Customer Database", "isActive": true },
+          { "label": "Add an Expense System", "isActive": true },
+          { "label": "Special Link for Your Online Store", "isActive": true }
+        ]
+      },
+      "small": {
+        "title": "Small Projects",
+        "price": "600 EGP",
+        "features": [
+          { "label": "150 Monthly Requests", "isActive": true },
+          { "label": "Add an Unlimited Number of Products", "isActive": true },
+          { "label": "5 Other Employees", "isActive": true },
+          {
+            "label": "Print a Distinctive Invoice with a QR Code",
+            "isActive": false
+          },
+          {
+            "label": "Print a Custom Message for Your Invoices",
+            "isActive": true
+          },
+          { "label": "Store Activity and Accounts Reports", "isActive": true },
+          { "label": "Access to Your Customer Database", "isActive": true },
+          { "label": "Add an Expense System", "isActive": false },
+          { "label": "Special Link for Your Online Store", "isActive": true }
+        ]
+      },
+      "enterprise": {
+        "title": "Enterprise Package",
+        "price": "1000 EGP",
+        "features": [
+          { "label": "650 Monthly Requests", "isActive": true },
+          { "label": "Add an Unlimited Number of Products", "isActive": true },
+          { "label": "10 Other Employees", "isActive": true },
+          {
+            "label": "Print a Distinctive Invoice with a QR Code",
+            "isActive": true
+          },
+          {
+            "label": "Print a Custom Message for Your Invoices",
+            "isActive": true
+          },
+          { "label": "Store Activity and Accounts Reports", "isActive": true },
+          { "label": "Access to Your Customer Database", "isActive": true },
+          { "label": "Add an Expense System", "isActive": true },
+          { "label": "Special Link for Your Online Store", "isActive": true }
+        ]
+      },
+      "super": {
+        "title": "Super Package",
+        "price": "1400 EGP",
+        "features": [
+          { "label": "Unlimited Monthly Requests", "isActive": true },
+          { "label": "Add an Unlimited Number of Products", "isActive": true },
+          { "label": "20 Other Employees", "isActive": true },
+          {
+            "label": "Print a Distinctive Invoice with a QR Code",
+            "isActive": true
+          },
+          {
+            "label": "Print a Custom Message for Your Invoices",
+            "isActive": true
+          },
+          { "label": "Store Activity and Accounts Reports", "isActive": true },
+          { "label": "Access to Your Customer Database", "isActive": true },
+          { "label": "Add an Expense System", "isActive": true },
+          { "label": "Special Link for Your Online Store", "isActive": true }
+        ]
+      }
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "Is Website Design Difficult?",
+        "answer": "On the contrary, because Wavyi makes it easy for you to create your website or store in just 5 minutes by simply entering some data about your field."
+      },
+      {
+        "question": "Can I use my own domain name with Wavyi?",
+        "answer": "Yes, you can use your own domain name with Shopify. If you have an existing domain name, you can connect it to Shopify from your store's admin. If you don't have a domain name yet, you can either buy one through Shopify or a third-party provider."
+      },
+      {
+        "question": "Do I need to be a designer or developer to use Wavyi?",
+        "answer": "No, you don't need to be a designer or developer to use Wavyi. Signing up for Wavyi allows you to: Customize the look and feel of your store with the online store builder and themes. Add features and functionality to your store with apps. If you need extra help, you can contact our support team, or visit the Wavyi Expert Marketplace to search for and hire a certified Wavyi expert."
+      },
+      {
+        "question": "Can i Try Wavyi for Free?",
+        "answer": "You can start designing your website or store on Wavyi for free for 12 days without needing to enter your banking information. However, to access professional features and activate the site after the trial period, you'll need to upgrade to one of our annual plans."
+      }
+    ]
+  },
+  "blogs": {
+    "title": "All BLogs",
+    "continueReading": "Continue Reading"
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "testimonialParagraph": "Our clients are our biggest supporters. Would you like to know what they think about us? Take a look for yourself in the testimonials below.",
+    "items": [
+      {
+        "photo": "/anonymous.png",
+        "name": "Ahmed Mahmoud",
+        "rating": 4.7,
+        "content": "This platform has truly transformed my business operations! The intuitive interface and excellent support have made managing my online store so much easier. I can easily track my expenses and handle invoicing. I’m very grateful for such a comprehensive tool."
+      },
+      {
+        "photo": "/anonymous.png",
+        "name": "Mina Boutros",
+        "rating": 4.8,
+        "content": "Starting my online store has been seamless thanks to this platform. The invoicing feature with QR codes adds a professional touch, and customer management is effortless. I would highly recommend this service to anyone looking to grow their business online!"
+      },
+      {
+        "photo": "/anonymous.png",
+        "name": "Sarah El-Sharif",
+        "rating": 5,
+        "content": "I'm thrilled with the results since joining this platform. From expense tracking to customer reports, everything is organized and simple to access. The team really thought of everything needed to manage an online store. Couldn’t be happier with the decision!"
+      },
+      {
+        "photo": "/anonymous.png",
+        "name": "Youssef Anwar",
+        "rating": 4.9,
+        "content": "Excellent service! The ability to handle multiple employees and monitor store activity has been a game-changer for our growing team. The platform’s simplicity and power allow us to focus more on serving our customers. Highly recommended for small businesses!"
+      },
+      {
+        "photo": "/anonymous.png",
+        "name": "Fatma Hassan",
+        "rating": 4.7,
+        "content": "From easy order management to detailed reports, this service has it all. I especially love the special link feature for our store. The support team is always responsive and helpful. It’s exactly what I needed to scale my business."
+      },
+      {
+        "photo": "/anonymous.png",
+        "name": "Mohamed Samir",
+        "rating": 4.8,
+        "content": "Amazing tool for business owners! The custom invoice messages are perfect for branding, and I really appreciate the ability to manage expenses directly from the dashboard. It has become an essential part of my daily business routine."
+      },
+      {
+        "photo": "/anonymous.png",
+        "name": "Dina Rashed",
+        "rating": 5,
+        "content": "Absolutely love this platform! It’s user-friendly and loaded with features that make managing an online store easy and efficient. I’m particularly impressed with the expense tracking and customer management. It has helped me save a lot of time."
+      },
+      {
+        "photo": "/anonymous.png",
+        "name": "Bishoy Farid",
+        "rating": 4.9,
+        "content": "Using this platform has significantly streamlined my business processes. The reports and customer data access have provided valuable insights. I can confidently say this tool has made my online store setup much simpler than I could have imagined."
+      },
+      {
+        "photo": "/anonymous.png",
+        "name": "Omar Salah",
+        "rating": 5,
+        "content": "An exceptional tool! The monthly request limit is generous, and the reporting features are incredibly helpful for tracking our business’s progress. Plus, the invoice QR code feature really adds a modern touch to our invoices. Highly recommend!"
+      },
+      {
+        "photo": "/anonymous.png",
+        "name": "Rania Khalil",
+        "rating": 4.8,
+        "content": "I've tried several platforms, but none are as comprehensive as this. The platform provides everything needed for smooth business management, including employee access and detailed reporting. Perfect for anyone looking to grow their business online with ease."
+      },
+      {
+        "photo": "/anonymous.png",
+        "name": "Khaled El-Emary",
+        "rating": 4.9,
+        "content": "It’s remarkable how much easier this tool has made managing my store. I can track every sale and expense effortlessly. The QR code invoices are a bonus, adding a professional touch that customers appreciate. A fantastic investment for my business."
+      },
+      {
+        "photo": "/anonymous.png",
+        "name": "Yasmin Morsi",
+        "rating": 5,
+        "content": "Setting up my online store was effortless with this platform. The customization options are a huge plus, and the reports have provided incredible insights into my business operations. I’m beyond satisfied and highly recommend it to all entrepreneurs!"
+      },
+      {
+        "photo": "/anonymous.png",
+        "name": "Amr Mostafa",
+        "rating": 4.8,
+        "content": "This platform is a lifesaver! It simplifies every aspect of running an online business, from employee management to invoicing. Plus, the special store link feature makes my shop accessible and professional. Thank you for such a valuable service!"
+      },
+      {
+        "photo": "/anonymous.png",
+        "name": "Marwa Abdelrahman",
+        "rating": 5,
+        "content": "Couldn't ask for a better tool! Managing my store has never been easier. The expense system and customer database access are fantastic features. It’s like having a full team supporting my business. Highly recommended for anyone serious about growth!"
+      }
+    ]
+  }
+}

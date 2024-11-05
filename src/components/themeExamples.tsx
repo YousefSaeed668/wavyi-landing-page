@@ -1,6 +1,6 @@
 import Image from "next/image";
 import MaxWidth from "./maxWidth";
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 
 async function getWavyiStores(): Promise<{ data: Store[] }> {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}Stores`);
@@ -12,18 +12,19 @@ async function getWavyiStores(): Promise<{ data: Store[] }> {
 export const revalidate = 43200;
 export default async function ThemeExamples() {
   const storesExamples = await getWavyiStores();
-
+  const t = await getTranslations("homePage");
   return (
-    <section className=" py-28 md:py-56 2xl:pt-72" id="examples">
+    <section className=" py-28  2xl:pt-72" id="examples">
       <MaxWidth>
-        <h1 className="text-center text-3xl md:text-5xl font-bold mb-20 text-primaryOne">
-          Examples Of Our Stores Themes
+        <h1 className="text-center text-3xl md:text-5xl font-bold mb-20">
+          {t("themeExamples")}
         </h1>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {storesExamples.data.map((store) => (
+          {storesExamples.data.map((store, index) => (
             <div
               key={store.id}
               className="relative aspect-square group overflow-hidden rounded-lg"
+              data-aos="fade-up"
             >
               <a href={`https://${store.linkName}.wavyi.store`} target="_blank">
                 <Image

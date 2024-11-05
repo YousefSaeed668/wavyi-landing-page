@@ -1,7 +1,10 @@
 import Image from "next/image";
 import MaxWidth from "./maxWidth";
 import styles from "./waveSection.module.css";
-export default function WaveSection() {
+import { getLocale, getTranslations } from "next-intl/server";
+export default async function WaveSection() {
+  const t = await getTranslations("homePage");
+  const locale = await getLocale();
   return (
     <div>
       <div className={styles.header}>
@@ -18,9 +21,12 @@ export default function WaveSection() {
         </div>
         <MaxWidth>
           <div className={`${styles["inner-header"]} ${styles.flex}`}>
-            <p className="text-center tracking-[8px] text-4xl md:text-4xl font-light">
-              With simple steps, you can create your online store on the Wi-Fi
-              platform. Learn now.
+            <p
+              className={`text-center ${
+                locale === "ar" ? "tracking-[2px] " : "tracking-[8px] "
+              } text-4xl md:text-4xl font-light`}
+            >
+              {t("waveText")}
             </p>
           </div>
         </MaxWidth>

@@ -1,5 +1,6 @@
 import MaxWidth from "@/components/maxWidth";
-import { ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { getLocale, getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -13,12 +14,12 @@ async function getWavyiBlogs(): Promise<{ data: Blog[] }> {
 
 export default async function page() {
   const blogs = await getWavyiBlogs();
+  const t = await getTranslations("blogs");
+  const locale = await getLocale();
   return (
     <section className="py-20 ">
       <MaxWidth>
-        <h1 className=" text-3xl md:text-5xl font-bold mb-20 text-primaryOne">
-          All Blogs
-        </h1>
+        <h1 className=" text-3xl md:text-5xl font-bold mb-20 ">{t("title")}</h1>
         <div className="flex flex-col gap-5">
           {blogs.data.map((blog) => (
             <div
@@ -47,11 +48,18 @@ export default async function page() {
                   href={`/blog/${blog.id}`}
                   className="flex gap-2 items-center group"
                 >
-                  Read More{" "}
-                  <ArrowRight
-                    size={16}
-                    className="group-hover:-translate-x-2 transition duration-300"
-                  />
+                  {t("continueReading")}
+                  {locale === "ar" ? (
+                    <ArrowLeft
+                      size={16}
+                      className="group-hover:-translate-x-2 transition duration-300"
+                    />
+                  ) : (
+                    <ArrowRight
+                      size={16}
+                      className="group-hover:-translate-x-2 transition duration-300"
+                    />
+                  )}
                 </Link>
               </div>
             </div>
