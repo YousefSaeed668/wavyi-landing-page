@@ -65,11 +65,25 @@ async function PricingItem({
         {t(`plans.${planKey}.title`)}
       </h3>
       <div className="mb-4">
-        <span className={`text-xl font-bold `}>
-          {t(`plans.${planKey}.price`)}
+        <span
+          className={`text-xl font-bold ${
+            t(`plans.${planKey}.price`).split(" ").length > 1 && "line-through"
+          }`}
+        >
+          {t(`plans.${planKey}.price`).split(" ")[0]}
         </span>
+        <span>{t(`plans.${planKey}.price`).split(" ").slice(1).join(" ")}</span>
         <span className={`ml-2 opacity-50 `}>{t("perMonth")}</span>
       </div>
+      {t(`plans.${planKey}.discount`) && (
+        <div className="mb-4">
+          <span className={`text-xl font-bold `}>
+            {t(`plans.${planKey}.discountPrice`)}
+          </span>
+          <span className={`ml-2 opacity-50 `}>{t("perMonth")}</span>
+          <p>{t(`plans.${planKey}.discount`)}</p>
+        </div>
+      )}
       <div className="flex flex-col justify-between flex-1">
         <ul className="flex flex-col">
           {features.map((feature, i) => (

@@ -8,7 +8,7 @@ export default async function Hero() {
   const lang = await getLocale();
 
   return (
-    <section className=" min-h-screen  bg-gradient-to-l from-[#166BB9] to-black   pt-28 pb-20 md:py-20 relative ">
+    <section className=" min-h-screen  bg-gradient-to-l from-[#166BB9] to-black   pt-28 pb-20 md:py-20 relative mb-[220px] w-[95%]  mx-auto rounded-lg mt-[40px]">
       <MaxWidth className="text-white">
         <div className="flex flex-col-reverse  md:flex-row items-center justify-between gap-8 mt-20">
           <div data-aos="fade-right">
@@ -37,8 +37,8 @@ export default async function Hero() {
           </div>
         </div>
       </MaxWidth>
-      <div className="md:absolute md:w-[50%] lg:w-[40%] 2xl:w-[35%] max-w-[700px] md:left-1/2 md:top-full md:-translate-x-1/2  md:-translate-y-1/2 w-[80%] mx-auto mt-10">
-        <div className="rounded-md overflow-hidden" data-aos="zoom-out">
+      <div className="md:absolute z-10 md:w-[50%] lg:w-[40%] 2xl:w-[35%] max-w-[700px] md:left-1/2 md:top-full md:-translate-x-1/2  md:-translate-y-1/2 w-[80%] mx-auto mt-10">
+        <div className="rounded-md overflow-hidden">
           <video
             loop
             src="/wavyi_video.mp4"

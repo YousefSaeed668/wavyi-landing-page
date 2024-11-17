@@ -2,22 +2,25 @@ import MaxWidth from "@/components/maxWidth";
 import { Metadata } from "next";
 import Image from "next/image";
 
+export const revalidate = 12000;
 export async function generateStaticParams() {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}StoreBlogs/${process.env.NEXT_PUBLIC_STORE_ID}`
   );
   const data: { data: Blog[] } = await res.json();
-  const ids = data.data.map((blog) => ({ params: { blogId: blog.id } }));
-  return ids;
+  const blogNames = data.data.map((blog) => ({
+    params: { blogName: blog.name },
+  }));
+  return blogNames;
 }
 
 export async function generateMetadata({
-  params: { blogId },
+  params: { blogName },
 }: {
-  params: { blogId: string };
+  params: { blogName: string };
 }): Promise<Metadata> {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}StoreBlogs/GetById/${blogId}`
+    `${process.env.NEXT_PUBLIC_API_URL}StoreBlogs/New/GetBySlug/${blogName}/${process.env.NEXT_PUBLIC_STORE_NAME}`
   );
   const data = await res.json();
 
@@ -29,28 +32,29 @@ export async function generateMetadata({
     },
   };
 }
-async function getBlogData(blogId: string) {
+async function getBlogData(blogName: string) {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}StoreBlogs/GetById/${blogId}`
+    `${process.env.NEXT_PUBLIC_API_URL}StoreBlogs/New/GetBySlug/${blogName}/${process.env.NEXT_PUBLIC_STORE_NAME}`
   );
   const data = await res.json();
   return data;
 }
-export default async function page({ params }: { params: { blogId: string } }) {
-  const blogData = await getBlogData(params.blogId);
+export default async function page({
+  params,
+}: {
+  params: { blogName: string };
+}) {
+  const blogData = await getBlogData(params.blogName);
   return (
     <div className="py-20">
       <MaxWidth>
         <div className="flex justify-between items-center flex-col md:flex-row">
           <h1 className=" text-3xl md:text-5xl font-bold mb-20 max-md:text-center md:max-w-[60%] ">
-            {/* {blogData.name} */}
-            today we have to be happy and enjoy the day with our family and
-            friends
+            {blogData.name}
           </h1>
           <div className="w-full md:w-[450px] h-[300px] relative">
             <Image
-              // src={`${process.env.NEXT_PUBLIC_API_IMAGE}${blogData.imageUrl}`}
-              src="/blog.jpeg"
+              src={`${process.env.NEXT_PUBLIC_API_IMAGE}${blogData.imageUrl}`}
               alt="image"
               fill
             />

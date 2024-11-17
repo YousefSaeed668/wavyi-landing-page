@@ -14,7 +14,7 @@ export default async function ThemeExamples() {
   const storesExamples = await getWavyiStores();
   const t = await getTranslations("homePage");
   return (
-    <section className=" py-28  2xl:pt-72" id="examples">
+    <section className="py-28" id="examples">
       <MaxWidth>
         <h1 className="text-center text-3xl md:text-5xl font-bold mb-20">
           {t("themeExamples")}

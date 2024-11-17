@@ -11,8 +11,8 @@ export async function Header({ isPage = false }: { isPage?: boolean }) {
   const t = await getTranslations("header");
   return (
     <header
-      className={`py-8  bg-black  bg-gradient-to-l from-[#166BB9] to-black text-white ${
-        !isPage && "absolute  top-0 left-0 right-0 z-50 "
+      className={`py-8  bg-black  bg-gradient-to-l from-[#166BB9] to-black text-white  mx-auto ${
+        !isPage && "absolute  top-14 left-0 right-0 z-50 w-[95%]"
       } `}
     >
       <MaxWidth className="flex items-center justify-between">
@@ -41,7 +41,6 @@ export async function Header({ isPage = false }: { isPage?: boolean }) {
               <Link href="/blogs">{t("blogs")}</Link>
             </li>
             <li className="flex items-center gap-2">
-              <span className="text-sm">{t("downloadApp")}</span>
               <a
                 href="https://play.google.com/store/apps/details?id=com.wavyi.seller_dashboard_application&hl=en&gl=US"
                 target="_blank"

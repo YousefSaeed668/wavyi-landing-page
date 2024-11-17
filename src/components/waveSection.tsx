@@ -3,31 +3,69 @@ import MaxWidth from "./maxWidth";
 import styles from "./waveSection.module.css";
 import { getLocale, getTranslations } from "next-intl/server";
 export default async function WaveSection() {
-  const t = await getTranslations("homePage");
+  const t = await getTranslations("features");
   const locale = await getLocale();
+  const leftColumnFeatures = [0, 1, 2];
+  const rightColumnFeatures = [3, 4, 5];
+
   return (
-    <div>
+    <div className="rounded-t-lg overflow-hidden">
       <div className={styles.header}>
-        <div className="logo pt-10">
-          <Image
-            title="wavyi"
-            aria-label="wavyi"
-            className="filter invert brightness-0 mx-auto "
-            src="/wavy.png"
-            alt=""
-            width={100}
-            height={100}
-          />
-        </div>
         <MaxWidth>
-          <div className={`${styles["inner-header"]} ${styles.flex}`}>
-            <p
-              className={`text-center ${
-                locale === "ar" ? "tracking-[2px] " : "tracking-[8px] "
-              } text-4xl md:text-4xl font-light`}
-            >
-              {t("waveText")}
-            </p>
+          <div className="min-h-[70vh]">
+            <h2 className="text-3xl font-bold w-full mb-10 text-center">
+              {t("title")}
+            </h2>
+            <div className="flex flex-wrap gap-16 justify-between">
+              <div className=" w-full  md:max-w-[32%]  2xl:max-w-[42%]">
+                <ul className="space-y-8">
+                  {leftColumnFeatures.map((index) => (
+                    <li key={index} className="flex gap-4 items-start">
+                      <div className="bg-white mt-1 p-2 drop-shadow-lg">
+                        <Image
+                          src={t(`items.${index}.imgUrl`)}
+                          alt="feature icon"
+                          width={30}
+                          height={30}
+                        />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-semibold">
+                          {t(`items.${index}.title`)}
+                        </h3>
+                        <p className="text-sm mt-2">
+                          {t(`items.${index}.description`)}
+                        </p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className=" w-full md:max-w-[32%] 2xl:max-w-[42%]">
+                <ul className="space-y-8">
+                  {rightColumnFeatures.map((index) => (
+                    <li key={index} className="flex gap-4 items-start">
+                      <div className="bg-white mt-1 p-2 drop-shadow-lg">
+                        <Image
+                          src={t(`items.${index}.imgUrl`)}
+                          alt="feature icon"
+                          width={30}
+                          height={30}
+                        />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-semibold">
+                          {t(`items.${index}.title`)}
+                        </h3>
+                        <p className="text-sm mt-2">
+                          {t(`items.${index}.description`)}
+                        </p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
         </MaxWidth>
 

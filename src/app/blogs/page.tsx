@@ -6,12 +6,12 @@ import Link from "next/link";
 
 async function getWavyiBlogs(): Promise<{ data: Blog[] }> {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}StoreBlogs/${process.env.NEXT_PUBLIC_STORE_ID}`
+    `${process.env.NEXT_PUBLIC_API_URL}StoreBlogs/${process.env.NEXT_PUBLIC_STORE_ID}`,
+    { cache: "no-cache" }
   );
   const data = await res.json();
   return data;
 }
-
 export default async function page() {
   const blogs = await getWavyiBlogs();
   const t = await getTranslations("blogs");
@@ -37,7 +37,7 @@ export default async function page() {
               <div className="w-[70%] max-w-[70%]">
                 <h2 className="text-xl font-bold text-gray-600 p-2">
                   <Link
-                    href={`/blog/${blog.id}`}
+                    href={`/blog/${blog.name}`}
                     className="hover:text-primaryOne"
                   >
                     {blog.name}
@@ -45,7 +45,7 @@ export default async function page() {
                 </h2>
                 <p className="p-2">{blog.seoContent}</p>
                 <Link
-                  href={`/blog/${blog.id}`}
+                  href={`/blog/${blog.name}`}
                   className="flex gap-2 items-center group"
                 >
                   {t("continueReading")}

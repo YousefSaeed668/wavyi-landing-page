@@ -1,7 +1,6 @@
 {
   "header": {
     "login": "Login",
-    "downloadApp": "Now You Can Download the Application From",
     "joinFree": "Join Now For Free",
     "blogs": "Blogs"
   },
@@ -27,6 +26,7 @@
       "free": {
         "title": "Free",
         "price": "FREE",
+        "discount": "",
         "features": [
           { "label": "15 Monthly Requests", "isActive": true },
           { "label": "Other Employees", "isActive": true },
@@ -47,6 +47,10 @@
       "small": {
         "title": "Small Projects",
         "price": "600 EGP",
+        "discountPrice": "300 EGP",
+        "discountPerMonth": "/Month",
+        "discount": "When You Use This Code: WAVYI50",
+
         "features": [
           { "label": "150 Monthly Requests", "isActive": true },
           { "label": "Add an Unlimited Number of Products", "isActive": true },
@@ -68,6 +72,10 @@
       "enterprise": {
         "title": "Enterprise Package",
         "price": "1000 EGP",
+        "discountPrice": "500 EGP",
+        "discountPerMonth": "/Month",
+        "discount": "When You Use This Code: WAVYI50",
+
         "features": [
           { "label": "650 Monthly Requests", "isActive": true },
           { "label": "Add an Unlimited Number of Products", "isActive": true },
@@ -89,6 +97,9 @@
       "super": {
         "title": "Super Package",
         "price": "1400 EGP",
+        "discountPrice": "700 EGP",
+        "discountPerMonth": "/Month",
+        "discount": "When You Use This Code: WAVYI50",
         "features": [
           { "label": "Unlimited Monthly Requests", "isActive": true },
           { "label": "Add an Unlimited Number of Products", "isActive": true },
@@ -221,6 +232,42 @@
         "name": "Marwa Abdelrahman",
         "rating": 5,
         "content": "Couldn't ask for a better tool! Managing my store has never been easier. The expense system and customer database access are fantastic features. It’s like having a full team supporting my business. Highly recommended for anyone serious about growth!"
+      }
+    ]
+  },
+
+  "features": {
+    "title": "How We Help Our Clients ?",
+    "items": [
+      {
+        "title": "Intuitive Store Creation Platform",
+        "description": "Build your dream online store effortlessly with our point-and-click interface - no technical expertise needed!",
+        "imgUrl": "/websitebuilder.png"
+      },
+      {
+        "title": "Device-Friendly Templates",
+        "description": "Select from our vast collection of adaptable, professional designs that automatically adjust to any screen size.",
+        "imgUrl": "/phone.png"
+      },
+      {
+        "title": "Round-the-Clock Assistance",
+        "description": "Access professional help whenever you need it through our committed support staff, resource library, and user forums.",
+        "imgUrl": "/24-hours.png"
+      },
+      {
+        "title": "Stock Control System",
+        "description": "Monitor and maintain your inventory seamlessly across various warehouses and retail platforms.",
+        "imgUrl": "/check.png"
+      },
+      {
+        "title": "Performance Metrics Center",
+        "description": "Guide your business strategy using live statistics about your shop's metrics and shopping patterns.",
+        "imgUrl": "/pie-chart.png"
+      },
+      {
+        "title": "Cross-Platform Commerce",
+        "description": "Reach customers wherever they shop – digital storefronts, physical locations, and social media marketplaces.",
+        "imgUrl": "/marketing.png"
       }
     ]
   }
