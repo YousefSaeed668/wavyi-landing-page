@@ -11,8 +11,8 @@ export async function Header({ isPage = false }: { isPage?: boolean }) {
   const t = await getTranslations("header");
   return (
     <header
-      className={`py-8  bg-black  bg-gradient-to-l from-[#166BB9] to-black text-white  mx-auto ${
-        !isPage && "absolute  top-14 left-0 right-0 z-50 w-[95%]"
+      className={`py-8  bg-black  bg-gradient-to-l from-[#166BB9]  to-black text-white  mx-auto ${
+        !isPage && "  top-0 left-0 right-0 z-50 "
       } `}
     >
       <MaxWidth className="flex items-center justify-between">

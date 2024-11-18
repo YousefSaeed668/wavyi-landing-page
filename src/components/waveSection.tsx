@@ -9,7 +9,7 @@ export default async function WaveSection() {
   const rightColumnFeatures = [3, 4, 5];
 
   return (
-    <div className="rounded-t-lg overflow-hidden">
+    <div className="rounded-t-lg overflow-hidden" id="features">
       <div className={styles.header}>
         <MaxWidth>
           <div className="min-h-[70vh]">

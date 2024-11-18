@@ -5,9 +5,12 @@
     "blogs": "Blogs"
   },
   "homePage": {
-    "heroTitle": "Create Your Own App Store and Sell Online with Ease .",
+    "heroTitleStart": "Create",
+    "heroTitleHighlight": "Your Own",
+    "heroTitleEnd": "App Store and Sell Online with Ease .",
     "heroParagraph": "With wavyi you can easily create and manage your own app store, and we'll handle the hosting and maintenance. This means you can focus on what you do best to run your business.",
-    "joinFree": "Join Now For Free",
+    "joinFree": "Get Started",
+    "learnMore": "Learn More",
     "onlineStore": "Your online store",
     "onlineStoreParagraph": "Your ideal destination to create a website that reflects your vision and style. We provide an easy-to-use platform that allows you to choose and design the website you dream of with ease and professionalism.",
     "easyCashier": "Easy-to-use cashier",
