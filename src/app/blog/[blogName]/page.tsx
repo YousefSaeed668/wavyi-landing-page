@@ -1,7 +1,6 @@
 import MaxWidth from "@/components/maxWidth";
 import { Metadata } from "next";
 import Image from "next/image";
-
 export const revalidate = 12000;
 export async function generateStaticParams() {
   const res = await fetch(
@@ -9,21 +8,17 @@ export async function generateStaticParams() {
   );
   const data: { data: Blog[] } = await res.json();
   const blogNames = data.data.map((blog) => ({
-    params: { blogName: blog.name },
+    blogName: blog.name,
   }));
   return blogNames;
 }
 
 export async function generateMetadata({
-  params: { blogName },
+  params,
 }: {
   params: { blogName: string };
 }): Promise<Metadata> {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}StoreBlogs/New/GetBySlug/${blogName}/${process.env.NEXT_PUBLIC_STORE_NAME}`
-  );
-  const data = await res.json();
-
+  const data = await getBlogData(params.blogName);
   return {
     title: data.name,
     description: data.seoContent,
@@ -36,6 +31,7 @@ async function getBlogData(blogName: string) {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}StoreBlogs/New/GetBySlug/${blogName}/${process.env.NEXT_PUBLIC_STORE_NAME}`
   );
+
   const data = await res.json();
   return data;
 }
